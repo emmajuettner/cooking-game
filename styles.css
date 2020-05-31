@@ -1,0 +1,112 @@
+body {
+}
+
+#topbar {
+	border: 1px solid red;
+}
+
+/*modal*/
+#about-modal {
+	display: none;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	margin: auto;
+	background-color: white;
+	border: 2px red solid;
+	z-index: 2;
+	padding: 10px;
+}
+
+#mainarea {
+	border: 1px solid blue;
+	height: 500px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+.navbar {
+	width: 100%;
+	background-color: white;
+}
+
+#foodstand {
+	background-color: green;
+	display: inline-block;
+	box-sizing: border-box;
+}
+
+#internalmenu {
+	background-color: yellow;
+	display: inline-block;
+	box-sizing: border-box;
+}
+
+.grid-inv { /*inventory grids*/
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-column-gap: 10px;
+	grid-row-gap: 10px;
+	margin: 5px 5px 5px 5px;
+	text-align: center;
+}
+
+.grid-container-false { /*non-selected grid item*/
+	background-color: red;
+}
+
+.grid-container-true { /*selected grid item*/
+	background-color: blue;
+}
+
+.grid-container img {
+	max-width: 100%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.tooltip {
+	position: relative;
+	display: inline-block;
+}
+
+.tooltip .tooltiptext {
+	visibility: hidden;
+	width: 120px;
+	background-color: #555;
+	text-align: center;
+	color: #fff;
+	padding: 5px 0;
+	border-radius: 6px;
+	position: absolute;
+	z-index: 1;
+	bottom: 0%;
+	left: 185%;
+	margin-left: -60px;
+	opacity: 0;
+}
+
+.tooltip:hover .tooltiptext {
+	visibility: visible;
+	opacity: 1;
+}
+
+.count-overlay {
+	position: absolute;
+	bottom: 0;
+	right: 2px;
+}
+
+#pantry-footer {
+	width: 100%;
+	text-align: center;
+	background-color: magenta;
+}
+
+#externalmenu {
+	background-color: orange;
+	display: inline-block;
+	box-sizing: border-box;
+}

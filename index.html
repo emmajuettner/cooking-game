@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>This Is A Cooking Game</title>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link rel="stylesheet" href="styles.css">
+	<!--js imports-->
+	<script type="text/javascript" src="js/content-masterlists.js"></script>
+	<script type="text/javascript" src="js/misc-functions.js"></script>
+	<script type="text/javascript" src="js/menu-buttons.js"></script>
+	<script type="text/javascript" src="js/inventory.js"></script>
+	<script type="text/javascript" src="js/cooking-functions.js"></script>
+	<script type="text/javascript" src="js/init.js"></script>
+</head>
+<body onload="initGame()">
+	<div id="topbar">
+		This is a cooking game.
+		<button id="about" onclick="showAbout()">About</button>
+		<div id="about-modal">
+			<h3>About</h3>
+			<p>This is a cooking game. (put credits here)</p>
+			<button onclick="hideAbout()">close</button>
+		</div>
+		<button>Save</button>
+		<button>Reset</button>
+	</div>
+	<div id="mainarea">
+		<div id="foodstand">
+			<div class="navbar">
+				<button onclick="showKitchen()">kitchen</button>
+				<button onclick="showStorefront()">storefront</button>
+				<button onclick="showGarden()">garden</button>
+			</div>
+			<div id="foodstand-content">
+			</div>
+		</div><div id="internalmenu">
+			<div class="navbar">
+				<button onclick="showPantry()">pantry</button>
+				<button onclick="showRecipes()">recipes</button>
+				<button onclick="showAchievements()">achievements</button>
+			</div>
+			<div id="internalmenu-content">
+			</div>
+		</div><div id="externalmenu">
+			<div class="navbar">
+				<button onclick="showMap()">map</button>
+				<button onclick="showAddressBook()">address book</button>
+			</div>
+			<div id="externalmenu-content">
+			</div>
+		</div>
+	</div>
+</body>
+</html>
