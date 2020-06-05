@@ -62,7 +62,37 @@ function bringToKitchen() {
 }
 
 function bringToStorefront() {
-	
+	alphabetize(selectedIngredients);
+	//remove selected items from pantry
+	for (var i=0; i<selectedIngredients.length; i++) {
+		for (var j=0; j<invPantry.length; j++) {
+			if (invPantry[j].name==selectedIngredients[i].name) {
+				//if there's only one item in the pantry, remove it
+				if (invPantry.length==1 & invPantry[j].count==1) {
+					invPantry = [];
+				}
+				//if there's more than one, reduce count by one and deselect
+				else if (invPantry[j].count>1) {
+					invPantry[j].count = invPantry[j].count - 1;
+					invPantry[j].selected = false;
+				}
+				//if there's just one of the item, remove it from invPantry
+				else {
+					invPantry = invPantry.splice(i-1,1);
+				}
+				break;
+			}
+		}
+	}
+	//move to storefront inventory and clear selected ingredients list
+	for (var i=0; i<selectedIngredients.length; i++) {
+		invStorefront.push(selectedIngredients[i]);
+	}
+	alphabetize(invStorefront);
+	selectedIngredients = [];
+	//reload storefront and pantry displays
+	showStorefront();
+	showPantry();
 }
 
 function cookFood() {

@@ -9,7 +9,7 @@ function hideAbout() {
 	document.getElementById("about-modal").style.display = "none";
 }
 
-//functions for displaying various elements in the main content areas, activated by clicking navbar buttons
+//functions for displaying various elements in the main content areas, activated by clicking navbar buttons or on changes to inventories
 function showKitchen() {
 	var content = "kitchen<br>";
 	for (var i = 0; i<invKitchen.length; i++) {
@@ -20,7 +20,11 @@ function showKitchen() {
 }
 
 function showStorefront() {
-	document.getElementById("foodstand-content").innerHTML = "storefront";
+	var content = "storefront<br>";
+	for (var i=0; i<invStorefront.length; i++) {
+		content = content + invStorefront[i].name + "<br>";
+	}
+	document.getElementById("foodstand-content").innerHTML = content;
 }
 
 function showGarden() {
@@ -30,7 +34,7 @@ function showGarden() {
 function showPantry() {
 	var content = "";
 	//add footer with buttons for transferring ingredients
-	content = content + "<div id=\"pantry-footer\"><button onclick=\"bringToKitchen()\">Bring to Kitchen</button><button onclick=\"bringToStorefront()\">Bring to Storefront</button></div>";
+	content = content + "<div id=\"pantry-footer\"><button id=\"bringToKitchen\" onclick=\"bringToKitchen()\">Bring to Kitchen</button><button id=\"bringToStorefront\" onclick=\"bringToStorefront()\">Bring to Storefront</button></div>";
 	
 	//display all foods currently in player's inventory in a grid
 	content = content + "<div class=\"grid-inv\">";
@@ -46,6 +50,11 @@ function showPantry() {
 	}
 	content=content+"</div>";
 	document.getElementById("internalmenu-content").innerHTML = content;
+	//disable bringToKitchen and bringToStorefront buttons if no items selected
+	if (selectedIngredients.length==0) {
+		document.getElementById("bringToKitchen").disabled = true;
+		document.getElementById("bringToStorefront").disabled = true;
+	}
 }
 
 function showRecipes() {
