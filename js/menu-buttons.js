@@ -21,9 +21,17 @@ function showKitchen() {
 
 function showStorefront() {
 	var content = "storefront<br>";
+	//display all foods currently in player's storefront inventory in a grid
+	content = content + "<div class=\"grid-inv\">";
 	for (var i=0; i<invStorefront.length; i++) {
-		content = content + invStorefront[i].name + "<br>";
+		//open div and add img
+		content = content + "<div class=\"grid-container-"+invStorefront[i].selected+"\"><div class=\"tooltip\"><img src=\"img/"+invStorefront[i].img+"\" alt=\""+invStorefront[i].name+"\" onclick=\"selectIngredient("+i+")\"/>";
+		//add cost overlay
+		content = content + "<div class=\"count-overlay\">$"+invStorefront[i].cost+"</div>";
+		//close divs
+		content = content + "</div></div>";
 	}
+	content=content+"</div>";
 	document.getElementById("foodstand-content").innerHTML = content;
 }
 
@@ -33,10 +41,10 @@ function showGarden() {
 
 function showPantry() {
 	var content = "";
-	//add footer with buttons for transferring ingredients
-	content = content + "<div id=\"pantry-footer\"><button id=\"bringToKitchen\" onclick=\"bringToKitchen()\">Bring to Kitchen</button><button id=\"bringToStorefront\" onclick=\"bringToStorefront()\">Bring to Storefront</button></div>";
+	//add header with buttons for transferring ingredients
+	content = content + "<div id=\"pantry-header\"><button id=\"bringToKitchen\" onclick=\"bringToKitchen()\">Bring to Kitchen</button><button id=\"bringToStorefront\" onclick=\"bringToStorefront()\">Bring to Storefront</button></div>";
 	
-	//display all foods currently in player's inventory in a grid
+	//display all foods currently in player's pantry inventory in a grid
 	content = content + "<div class=\"grid-inv\">";
 	for (var i=0; i<invPantry.length; i++) {
 		//open div and add img

@@ -96,6 +96,10 @@ function bringToStorefront() {
 }
 
 function cookFood() {
+	var recipe = [];
+	for (var i=0; i<invKitchen.length; i++) {
+		recipe.push(invKitchen[i].name);
+	}
 	//check selected ingredients against recipes
 	//check if recipe is known
 	//if not known, display new recipe card and make recipe known

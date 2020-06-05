@@ -151,4 +151,18 @@ var allIngredients = {
 		"cost" : 3,
 		"img" : "tuna.png",
 	}
-}
+};
+/*
+var allRecipes = {
+	"apple" : {
+		"apple" : {
+			"apple" : {
+				"name" : "applesauce",
+				"desc" : "a delicious apple mush",
+				"cost" : "2",
+				"img" : "applesauce.png",
+				"recipe" : ["apple","apple","apple"]
+			}
+		}
+	}
+};*/
